@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/server.js localhost 2580"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },
