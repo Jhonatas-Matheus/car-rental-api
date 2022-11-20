@@ -1,23 +1,18 @@
 import { Router } from "express";
 
-import { CategoriesRepository } from "../repositories/CategoriesRepository";
+import { CategoriesRepository } from "../modules/cars/repositories/categories/CategoriesRepository";
+import { CreateCategoryService } from "../modules/cars/services/CreateCategoryService";
 
 export const categoriesRoutes = Router();
 
 const categoriesRepository = new CategoriesRepository();
 categoriesRoutes.post("/", (req, res) => {
   const { name, description } = req.body;
-  if (categoriesRepository.findByName(name)) {
-    return res.status(400).json({
-      message: "Category already exists",
-    });
-  }
-  categoriesRepository.create({ name, description });
+  const createCategoryService = new CreateCategoryService(categoriesRepository);
+  createCategoryService.execute({ name, description });
   return res.status(201).json({ message: "Category created" });
 });
 categoriesRoutes.get("/", (req, res) => {
   const listOfCategorys = categoriesRepository.list();
   return res.status(200).json(listOfCategorys);
 });
-
-// Parei na aula 03

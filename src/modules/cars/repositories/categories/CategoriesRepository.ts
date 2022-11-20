@@ -1,10 +1,8 @@
-import { Category } from "../model/Category";
+import { Category } from "../../model/Category";
+import { ICreateCategoryDTO } from "./ICategoriesRepository";
 
 // DTO => Data transfer object: É um objeto que fica responsavel por tranferir dados entre uma classe e outra
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
+
 class CategoriesRepository {
   private categories: Category[];
 
