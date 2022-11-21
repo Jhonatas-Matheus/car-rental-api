@@ -8,7 +8,7 @@
 // // Nosso service não precisa conhecer nosso response
 // // Nosso service não precisa conhecer nosso repositório pois o service é a camada de alto nível
 // // Para o service é indiferente qual banco de dados que nós estamos utilizando;
-// class CreateCategoryService {
+// class CreateCategoryUseCase {
 //   constructor(private categoriesRepository: ICategoriesRepository) {}
 //   execute({ name, description }: IRequest): void {
 //     const categoryAlreadyExists = this.categoriesRepository.findByName(name);
@@ -18,4 +18,4 @@
 //     this.categoriesRepository.create({ name, description });
 //   }
 // }
-// export { CreateCategoryService };
+// export { CreateCategoryUseCase };
